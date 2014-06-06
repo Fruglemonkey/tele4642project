@@ -1,17 +1,14 @@
-# Copyright (C) 2011 Nippon Telegraph and Telephone Corporation.
+#Load balancer based on simple_switch_13 and simpleMonitor code from Ryu example documentation.
+#When the controller starts up, Table-miss flows are installed. One rule matches on all traffic, at priority 0.
+#Another matches on all TCP, at priority 10. 
+#These flows are instructed to send packet-ins to the controller from the switch upon packet match.
+#New flows are then installed, to prevent further packet-ins. For traffic between hosts h1 to h3, new flows are installed
+#with priority 1. For TCP traffic headed towards IP address of 10.0.0.4, new flows are installed with priority 20.
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#    http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
-# implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+#Flow balancing is performed at new flow creation. When TCP sessions towards 10.0.0.4 are initiated, they are assigned
+#to a flow based on current link utilisations on ports 4 and 5. Note that hosts 4 and 5 connected on ports 4 and 5 respectively
+#share the same IP and MAC address of 10.0.0.4 and 00:00:00:00:00:04. This is aimed to simulate a multi-home setup with two links
+#to the internet.
 from __future__ import division
 from ryu.base import app_manager
 from ryu.controller import ofp_event
