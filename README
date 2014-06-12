@@ -4,7 +4,7 @@ Group 6 consists of:
 
 Jeffrey Lai, Kenny Cheng, Declan Jakrot, and Lewis Shiu.
 
-Here, you'll find the source code and documentation for a multi-home focused load balancer OpenFlow controller.
+Here, you'll find the source code and documentation for a multi-home focused load balancing OpenFlow controller.
 
 The controller uses the RYU framework, utilising OpenFlow 1.3 spec.
 
@@ -12,3 +12,5 @@ In order to test and implement this controller, we have used the mininet network
 
 Install guides for Ryu and mininet can be found here: https://github.com/osrg/ryu/wiki/OpenFlow_Tutorial
 It is highly advised to download and run via a pre-prepared VM, as this will prevent any existing mininet/openvswitch installations from causing conflicts.
+
+Documentation for this project can be found in the wiki.
