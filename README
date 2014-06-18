@@ -4,7 +4,7 @@ Group 6 consists of:
 
 Jeffrey Lai, Kenny Cheng, Declan Jakrot, and Lewis Shiu.
 
-Here, you'll find the source code and documentation for a multi-home focused load balancing OpenFlow controller.
+Here, you'll find the source code and documentation for a multi-home focused load balancing OpenFlow controller. The load balancing is done per connection.
 
 The controller uses the RYU framework, utilising OpenFlow 1.3 spec.
 
