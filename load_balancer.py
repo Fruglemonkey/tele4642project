@@ -58,7 +58,7 @@ class Loadbalancer(app_manager.RyuApp):
         match = parser.OFPMatch(eth_type = 0x0800, ip_proto = 6)
         actions = [parser.OFPActionOutput(ofproto.OFPP_CONTROLLER,ofproto.OFPCML_NO_BUFFER)]
         self.add_flow(datapath, 10, match, actions)
-        #We add the TCP catch-all. Set eth_type for some whatever goddamned reason
+        #We add the TCP catch-all. Set eth_type for TCP.
 
     def add_flow(self, datapath, priority, match, actions):
         ofproto = datapath.ofproto
